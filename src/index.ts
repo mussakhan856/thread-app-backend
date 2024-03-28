@@ -1,6 +1,7 @@
 import express from "express";
 import { expressMiddleware } from "@apollo/server/express4";
 import { createApolloClientServer } from "./graphql";
+import { UserService } from "./services/user";
 
 const init = async () => {
   const app = express();
