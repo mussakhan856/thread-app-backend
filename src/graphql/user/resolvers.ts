@@ -1,8 +1,16 @@
-const queries = {};
+import { CreateUserPayload, UserService, getUserPayload } from "../../services/user";
+
+const queries = {
+    getUserToken: async(_:any, payload: getUserPayload)=>{
+        const token = await UserService.getUserToken(payload);
+        return token;
+    }
+};
 
 const mutations = {
-    createUser: async(_: any, {}:{})=>{
-        return "random User id";
+    createUser: async(_: any, payload: CreateUserPayload)=>{
+       const res = await UserService.createUser(payload);
+       return res.id;
     }
 };
 

@@ -4,7 +4,7 @@ export const createApolloClientServer = async ()=>{
     const gqlServer = new ApolloServer({
         typeDefs: `
             type Query {
-             hello: String
+                ${User.queries}
             }
             type Mutation{
               ${User.mutations}
@@ -12,7 +12,6 @@ export const createApolloClientServer = async ()=>{
         `,
         resolvers: {
           Query: {
-            hello: ()=> "Hello from hello",
             ...User.resolvers.queries
           },
           Mutation: {
